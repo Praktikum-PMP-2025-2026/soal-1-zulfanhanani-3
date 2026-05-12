@@ -50,7 +50,7 @@ void preorder(Node* tree){
     if (tree == NULL){
         return;
     }
-    printf("%d ", tree->angka);
+    printf(" %d", tree->angka);
     preorder(tree->kiri);
     preorder(tree->kanan);
 }
@@ -60,7 +60,7 @@ void inorder(Node* tree){
         return;
     }
     inorder(tree->kiri);
-    printf("%d ", tree->angka);
+    printf(" %d", tree->angka);
     inorder(tree->kanan);
 }
 
@@ -70,7 +70,7 @@ void postorder(Node* tree){
     }
     postorder(tree->kiri);
     postorder(tree->kanan);
-    printf("%d ", tree->angka);
+    printf(" %d", tree->angka);
 }
 
 int main() {
@@ -87,11 +87,11 @@ int main() {
         tree = addNode(tree, angka, i);
     }
     
-    printf("PRE ");
+    printf("PRE");
     preorder(tree);
-    printf("\nIN ");
+    printf("\nIN");
     inorder(tree);
-    printf("\nPOST ");
+    printf("\nPOST");
     postorder(tree);
 
     return 0;
