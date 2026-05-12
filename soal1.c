@@ -29,20 +29,21 @@ Node* createTree(int angka){
     return newNode;
 }
 
-void addNode(Node* tree, int angka){
+Node* addNode(Node* tree, int angka, int j){
     if (tree == NULL){
         tree = createTree(angka);
-    }else if (angka < tree->angka && tree->kiri == NULL){
-        tree->kiri = createTree(angka);
-        tree->kiri->parent = tree;
-    }else if (angka > tree->angka && tree->kanan == NULL){
-        tree->kanan = createTree(angka);
-        tree->kanan->parent = tree;
-    }else if (angka < tree->angka){
-        addNode(tree->kiri, angka);
-    }else{
-        addNode(tree->kanan, angka);
+    // }else if (angka < tree->angka && tree->kiri == NULL){
+    //     tree->kiri = createTree(angka);
+    //     tree->kiri->parent = tree;
+    // }else if (angka > tree->angka && tree->kanan == NULL){
+    //     tree->kanan = createTree(angka);
+    //     tree->kanan->parent = tree;
+    }else if (j % 2 == 0){
+        tree->kiri = addNode(tree->kiri, angka, j++);
+    }else if (j % 2 == 1){
+        tree->kanan = addNode(tree->kanan, angka, j++);
     }
+    return tree;
 }
 
 void preorder(Node* tree){
@@ -56,7 +57,6 @@ void preorder(Node* tree){
 
 void inorder(Node* tree){
     if (tree == NULL){
-        printf("1");
         return;
     }
     inorder(tree->kiri);
@@ -74,7 +74,7 @@ void postorder(Node* tree){
 }
 
 int main() {
-    int n, angka;
+    int n, angka, j = 0;
     if (scanf("%d", &n) != 1){
         printf("Input n tidak valid");
     }
@@ -84,7 +84,7 @@ int main() {
         if (scanf("%d", &angka) != 1){
             printf("Input n tidak valid");
         }
-        addNode(tree, angka);
+        tree = addNode(tree, angka, j);
     }
     
     printf("PRE ");
