@@ -3,7 +3,9 @@
  *   Hari dan Tanggal    : Selasa, 12 Mei 2026
  *   Nama (NIM)          : Zulfan Hanani (13224105)
  *   Nama File           : soal1selasa.c
- *   Deskripsi           : 
+ *   Deskripsi           : Silsilah Dinasti Langit
+ *                         menampilkan ketiga urutan pembacaan dari representasi pohon yang diberikan.
+                           Cetak preorder, inorder, dan postorder dari tree lengkap.
  * 
  */
 
@@ -73,11 +75,15 @@ void postorder(Node* tree){
 
 int main() {
     int n, angka;
-    scanf("%d", &n);
+    if (scanf("%d", &n) != 1){
+        printf("Input n tidak valid");
+    }
     Node* tree = NULL;
 
     for (int i = 0; i < n; i++){
-        scanf("%d", &angka);
+        if (scanf("%d", &angka) != 1){
+            printf("Input n tidak valid");
+        }
         addNode(tree, angka);
     }
     
