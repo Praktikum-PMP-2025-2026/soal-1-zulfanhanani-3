@@ -32,12 +32,12 @@ Node* createTree(int angka){
 Node* addNode(Node* tree, int angka, int j){
     if (tree == NULL){
         tree = createTree(angka);
-    }else if (j % 2 == 1 && tree->kiri == NULL){
-        tree->kiri = createTree(angka);
-        tree->kiri->parent = tree;
-    }else if (j % 2 == 0 && tree->kanan == NULL){
-        tree->kanan = createTree(angka);
-        tree->kanan->parent = tree;
+    // }else if (j % 2 == 1 && tree->kiri == NULL){
+    //     tree->kiri = createTree(angka);
+    //     tree->kiri->parent = tree;
+    // }else if (j % 2 == 0 && tree->kanan == NULL){
+    //     tree->kanan = createTree(angka);
+    //     tree->kanan->parent = tree;
     }else if (j % 2  == 1){
         tree->kiri = addNode(tree->kiri, angka, j++);
     }else if(j % 2 == 0){
